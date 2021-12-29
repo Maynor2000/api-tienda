@@ -5,6 +5,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.LocalDate;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -43,7 +45,7 @@ public class ProductosController {
 		return EntityModel.of(pr.findById(id));
 	}
 	@PostMapping("")
-	public EntityModel<?> posProductos(@ModelAttribute Productos p,MultipartFile file) {
+	public EntityModel<?> posProductos(@ModelAttribute Productos p,MultipartFile file,HttpServletRequest request) {
 		
 		try {
 			
@@ -57,6 +59,7 @@ public class ProductosController {
 			File ruta = new File("/static/images/"+p.getNombre()+".jpg");
 			p.setFoto(ruta.getAbsolutePath());
 			p.setFecha(LocalDate.now());
+			System.out.println(request.getLocalName());
 			
 			
 
@@ -64,7 +67,7 @@ public class ProductosController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return EntityModel.of(pr.save(p));
+		return null;//EntityModel.of(pr.save(p));
 	}
 
 }
