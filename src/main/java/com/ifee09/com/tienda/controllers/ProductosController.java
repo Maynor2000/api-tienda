@@ -59,7 +59,7 @@ public class ProductosController {
 			File ruta = new File("/static/images/"+p.getNombre()+".jpg");
 			p.setFoto(ruta.getAbsolutePath());
 			p.setFecha(LocalDate.now());
-			System.out.println(request.getLocalName());
+			System.out.println(request.getRemoteHost());
 			
 			
 
