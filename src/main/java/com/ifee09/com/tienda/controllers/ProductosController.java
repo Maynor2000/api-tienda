@@ -54,7 +54,7 @@ public class ProductosController {
 			fot.write(data);
 			fot.close();
 			
-			File ruta = new File("src/main/resources/static/images/"+p.getNombre()+".jpg");
+			File ruta = new File("/static/images/"+p.getNombre()+".jpg");
 			p.setFoto(ruta.getAbsolutePath());
 			p.setFecha(LocalDate.now());
 			
