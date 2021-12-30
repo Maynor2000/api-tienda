@@ -23,6 +23,7 @@ public class Productos extends RepresentationModel<Productos> implements Seriali
 	private String nombre;
 	private String foto;
 	private double precio;
+	private String categoria;
 	private String descripcionC;
 	private String descripcionL;
 	private LocalDate fecha;
@@ -39,7 +40,7 @@ public class Productos extends RepresentationModel<Productos> implements Seriali
 		
 	}
 	public Productos(Integer id, String nombre, String foto, double precio, String descripcionC, String descripcionL,
-			LocalDate fecha) {
+			LocalDate fecha,String categoria) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -48,6 +49,7 @@ public class Productos extends RepresentationModel<Productos> implements Seriali
 		this.descripcionC = descripcionC;
 		this.descripcionL = descripcionL;
 		this.fecha = fecha;
+		this.categoria = categoria;
 	}
 	//setters
 
@@ -148,11 +150,23 @@ public class Productos extends RepresentationModel<Productos> implements Seriali
 	public void setFecha(LocalDate fecha) {
 		this.fecha = fecha;
 	}
-
+	
+	/**
+	 * @return the categoria
+	 */
+	public String getCategoria() {
+		return categoria;
+	}
+	/**
+	 * @param categoria the categoria to set
+	 */
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
 	@Override
 	public String toString() {
 		return "Productos [id=" + id + ", nombre=" + nombre + ", foto=" + foto + ", precio=" + precio
-				+ ", descripcionC=" + descripcionC + ", descripcionL=" + descripcionL + ", fecha=" + fecha + "]";
+				+ ", descripcionC=" + descripcionC + ", descripcionL=" + descripcionL + ", fecha=" + fecha + ", categoria="+categoria+"]";
 	}
 
 		

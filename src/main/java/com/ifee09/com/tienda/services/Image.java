@@ -55,13 +55,11 @@ public class Image {
 	public static String createRuteImage(String imagen,HttpServletRequest hsr) {
 		//crea una ruta para la imagen en el servidor
 		File ruta = new File("/images/"+imagen);
-		String[] hostName = hsr.getLocalAddr().split("/");
-		
-		return  hostName[0]+ruta.getAbsolutePath();
+		String[] hostName = hsr.getRequestURL().toString().split("/");
+		return  hostName[0]+"//"+hostName[2]+ruta.getAbsolutePath();
 	}
 	public static String getNameImage(String rutaImagenHost) {
 		String[] rutasImage = rutaImagenHost.split("/");
-		
-		return rutasImage[2];
+		return rutasImage[4];
 	}
 }
